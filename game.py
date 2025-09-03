@@ -3,8 +3,7 @@ from goblin import Goblin
 from hero import Hero
 
 def main():
-    print("Welcome to the Battle Arena!")
-    print("༼ ᓄºل͟º ༽ᓄ   ᕦ(ò_óˇ)ᕤ")
+    print("The Siege of Luthadel has begun")
 
     # Create a hero
     hero = Hero("Vin")
@@ -22,7 +21,7 @@ def main():
         # Hero's turn to attack
         target_goblin = random.choice([goblin for goblin in goblins if goblin.is_alive()])
         damage = hero.strike()
-        print(f"Hero attacks {target_goblin.name} for {damage} damage!")
+        print(f"{hero.name} attacks {target_goblin.name} for {damage} damage!")
         target_goblin.take_damage(damage)
 
         # Check if the target goblin was defeated
@@ -34,14 +33,14 @@ def main():
         for goblin in goblins:
             if goblin.is_alive():
                 damage = goblin.attack()
-                print(f"{goblin.name} attacks hero for {damage} damage!")
+                print(f"{goblin.name} attacks {hero.name} for {damage} damage!")
                 hero.receive_damage(damage)
-
+        hero.burn_atium()
     # Determine outcome
     if hero.is_alive():
-        print(f"\nThe hero has defeated all the koloss! ༼ ᕤ◕◡◕ ༽ᕤ")
+        print(f"\n{hero.name} has defeated all the koloss! Luthadel stands.")
     else:
-        print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
+        print(f"\nThe Heir of the Survivor has been defeated. Luthadel has fallen.")
 
     # Final tally of goblins defeated
     print(f"\nTotal koloss defeated: {defeated_goblins} / {len(goblins)}")
