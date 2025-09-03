@@ -7,10 +7,10 @@ def main():
     print("༼ ᓄºل͟º ༽ᓄ   ᕦ(ò_óˇ)ᕤ")
 
     # Create a hero
-    hero = Hero("Aragorn")
+    hero = Hero("Vin")
 
     # Create goblins ༼ ºل͟º ༽ ༼ ºل͟º ༽ ༼ ºل͟º ༽
-    goblins = [Goblin(f"Goblin {i+1}") for i in range(3)]
+    goblins = [Goblin(f"Koloss {i+1}") for i in range(3)]
 
     # Keep track of how many goblins were defeated
     defeated_goblins = 0
@@ -39,12 +39,12 @@ def main():
 
     # Determine outcome
     if hero.is_alive():
-        print(f"\nThe hero has defeated all the goblins! ༼ ᕤ◕◡◕ ༽ᕤ")
+        print(f"\nThe hero has defeated all the koloss! ༼ ᕤ◕◡◕ ༽ᕤ")
     else:
         print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
 
     # Final tally of goblins defeated
-    print(f"\nTotal goblins defeated: {defeated_goblins} / {len(goblins)}")
+    print(f"\nTotal koloss defeated: {defeated_goblins} / {len(goblins)}")
 
 if __name__ == "__main__":
     main()

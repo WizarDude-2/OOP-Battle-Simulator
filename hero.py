@@ -11,18 +11,29 @@ class Hero:
         (Bonus) defence: A hero's ability to reduce incoming damage.
         (Bonus) special_ability: A unique ability the hero can use.
     """
-    
+
     def __init__(self, name):
-        #TODO Set the hero's name.
-        #TODO Set the hero's health. You might give the hero more health than a goblin.
-        #TODO Set the hero's attack power. Should it be more consistent than the goblin's?
-    
+        self.name = name
+        self.health = 150
+        self.attack_power = random.randint(8, 10)
+        self.atium_store = random.randint(0,4)
+        self.defence = 2
+
+    def burn_atium(self):
+        self.atium_store -= 1
 
     def strike(self):
-        # TODO Implement the hero's attack logic. It could be stronger or more consistent than a goblin's.
+        if self.atium >= 0:
+            return self.attack_power
+        else:
+            return random.randint(1, self.attack_power)
     
-    def receive_damage(self, damage):
-        # TODO Implement take_damage
-        # TODO We should prevent health from going into the NEGATIVE
-    
-    #TODO define is_alive
+    def take_damage(self, damage):
+        if self.atium < 0:
+            self.health -= (damage - self.defense)
+            print(f"{self.name} takes {damage} damage. Health is now {self.health}.")
+        else:
+            print(f"{self.name} burns atium, dodging the attack and taking no damage")
+
+    def is_alive(self):
+        return self.health > 0
