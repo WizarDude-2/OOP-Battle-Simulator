@@ -1,3 +1,4 @@
+import random
 class Hero:
     """
     This is our hero blueprint.
@@ -29,7 +30,7 @@ class Hero:
             return random.randint(1, self.attack_power)
     
     def take_damage(self, damage):
-        if self.atium < 0:
+        if self.atium_store < 0:
             self.health -= (damage - self.defense)
             print(f"{self.name} takes {damage} damage. Health is now {self.health}.")
         else:
