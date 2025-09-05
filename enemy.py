@@ -1,16 +1,16 @@
 import random
 
-class Goblin:
+class Enemy:
     def __init__(self, name):
         self.name = name
         self.health = 150
-        self.attack_power = random.randint(5, 10)
+        self.attack_power = random.randint(1, 10)
 
     def attack(self):
         return random.randint(1, self.attack_power)
 
     def take_damage(self, damage):
-        if (self.health - damage) != 0:
+        if not((self.health - damage) > self.health):
             self.health -= damage
         else:
             self.health = 0

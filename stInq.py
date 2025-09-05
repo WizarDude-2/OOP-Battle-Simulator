@@ -1,11 +1,12 @@
+from enemy import Enemy
 import random
-class Hero:
+
+class stInq(Enemy):
     def __init__(self, name):
+        self.health = 200
+        self.attack_power = random.randint(10,20)
+        self.atium_store = random.randint(30,60)
         self.name = name
-        self.hp = 100
-        self.strength = random.randint(10, 20)
-        self.atium_store = random.randint(60,120)
-        self.defence = 5
 
     def burn_atium(self):
         if self.atium_store != 0:
@@ -17,19 +18,16 @@ class Hero:
         else:
             print(f"{self.name} is out of atium!")
 
-    def strike(self):
+    def attack(self):
         if self.atium_store > 0:
-            return self.strength
+            return self.attack_power
         else:
-            return random.randint(1, self.strength)
+            return random.randint(1, self.attack_power)
     
-    def receive_damage(self, damage):
+    def take_damage(self, damage):
         if self.atium_store == 0:
-            if not((self.hp - damage) > self.hp):
-                self.hp -= abs(damage - self.defence)
-                print(f"{self.name} takes {damage} damage. Health is now {self.hp}.")
+            if not((self.health - damage) > self.health):
+                self.health -= damage
+                print(f"{self.name} takes {damage} damage. Health is now {self.health}.")
         else:
             print(f"{self.name} burns atium, dodging the attack and taking no damage")
-
-    def is_alive(self):
-        return self.hp > 0
