@@ -8,3 +8,5 @@ class Koloss(Enemy):
         self.attack_power = random.randint(1, self.age)
         self.name = name
         print(self.name)
+
+#takes roughly 56 seconds to kill all koloss

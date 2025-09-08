@@ -4,7 +4,7 @@ class Hero:
         self.name = name
         self.hp = 100
         self.strength = random.randint(10, 20)
-        self.atium_store = random.randint(60,120)
+        self.atium_store = random.randint(56,120)
         self.defence = 5
 
     def burn_atium(self):

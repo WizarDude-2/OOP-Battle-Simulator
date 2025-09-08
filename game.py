@@ -14,6 +14,7 @@ def main():
 
     # Keep track of how many goblins were defeated
     defeated_goblins = 0
+    roundCount = 0
 
     # Battle Loop 
     while hero.is_alive() and any(goblin.is_alive() for goblin in goblins):
@@ -36,13 +37,16 @@ def main():
                 print(f"{goblin.name} attacks {hero.name} for {damage} damage!")
                 hero.receive_damage(damage)
         hero.burn_atium()
+        roundCount += 1
         input(f"Press any key to continue: ")
     # Determine outcome
 
     if hero.is_alive():
+        print(f"{roundCount} rounds to kill koloss")
         print(f"\n{hero.name} has shattered the koloss force. A cloaked figure steps from the mist... a Steel Inquisitor joins the battle.")
         input(f"Press any key to continue: ")
         boss = stInq("Steel Inquisitor")
+        roundCount = 0
         while hero.is_alive() and boss.is_alive():
             print("\nNew Round!")
             damage = hero.strike()
@@ -58,6 +62,7 @@ def main():
 
             hero.burn_atium()
             boss.burn_atium()
+            roundCount += 1
             input(f"Press any key to continue: ")
         if hero.is_alive():
             print(f"\n{hero.name} has defeated the Inquisitor. Luthadel stands.")
